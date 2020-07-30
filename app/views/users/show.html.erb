@@ -4,6 +4,12 @@
 
 <h1> <%= @user.name  %> </h1>
 
-<% @user.attended_events.each do |event|  %>
+<h2>Attended Events</h2>
+<% @user.attended_events.past.each do |event|  %>
+    <%= event.name %>
+<% end %>
+
+<h2>Registered Upcoming Events</h2>
+<% @user.attended_events.upcoming.each do |event|  %>
     <%= event.name %>
 <% end %>

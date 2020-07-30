@@ -1,32 +1,27 @@
 class UsersController < ApplicationController
-    def new
-        @user = User.new
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      flash[:success] = "User with name #{@user.name} successfully created"
+      redirect_to @user
+      session[:current_user] = @user.id
+    else
+      flash[:alert] = "User couldn't be created"
+      render :new
     end
+  end
 
-    def create
-        @user = User.new(user_params)
-        if @user.save
-            flash[:success] = "User with name #{@user.name} successfully created"
-            redirect_to @user
-            session[:current_user] = @user.id
-        else
-            flash[:alert] = "User couldn't be created"
-            render :new    
-        end
-    end
+  def show
+    @user = User.find(params[:id])
+  end
 
-    def show
-        @user = User.find(params[:id])
-    end
+  private
 
-    def login
-
-    end    
-
-    private
-
-    def user_params
-        params.require(:user).permit(:name)
-    end 
-    
+  def user_params
+    params.require(:user).permit(:name)
+  end
 end

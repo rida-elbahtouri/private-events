@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     user = User.find_by(name: params[:name])
@@ -9,7 +8,7 @@ class SessionsController < ApplicationController
       redirect_to events_path
     else
       flash[:alert] = 'There is no user with that name'
-      render :new  
+      render :new
     end
   end
 
