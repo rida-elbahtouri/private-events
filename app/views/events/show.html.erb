@@ -1,0 +1,5 @@
+<%= @event.creator.name  %>
+
+<% @event.attendees.each do |att| %>
+    <%= att.name %>
+<%end%>

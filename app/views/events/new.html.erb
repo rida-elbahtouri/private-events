@@ -1,0 +1,14 @@
+<% if flash[alert] %>
+    <%= alert %>
+
+<% end %>
+    <% @event.errors.full_messages.each do |msg| %>
+        <%= msg %>
+    <% end %>
+<%= form_for @event do |f| %>
+ Name:         <%= f.text_field :name  %> <br><br>
+ Description:   <%= f.text_area :description %><br><br>
+ Location:      <%= f.text_field :location  %><br><br>
+ Date :         <%= f.date_field :date %><br><br>
+    <%= f.submit 'submit event' %>
+<% end %>

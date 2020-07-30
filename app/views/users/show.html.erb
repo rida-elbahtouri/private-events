@@ -2,3 +2,8 @@
     <p><%= flash[:success] %></p>
 <% end %>
 
+<h1> <%= @user.name  %> </h1>
+
+<% @user.attended_events.each do |event|  %>
+    <%= event.name %>
+<% end %>
