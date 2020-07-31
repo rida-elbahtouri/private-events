@@ -2,6 +2,8 @@ class EventsController < ApplicationController
   before_action :check_user, only: %i[new create]
   def index
     @events = Event.all
+    @upcoming = Event.upcoming
+    @past = Event.past
   end
 
   def new

@@ -1,15 +1,28 @@
-<% if flash[:success] %>
-    <p><%= flash[:success] %></p>
+<p><%= flash[:success] %></p>
+<h1 class="text-danger"> <%= @user.name  %> </h1>
+
+
+<div class="row">
+
+<div class="col-4">
+<h2 class="text-warning"> Hosted Events </h2>
+<ul>
+<% @user.hosted_events.each do |event| %>
+     
+    <li> <%= event.name %></li>
 <% end %>
-
-<h1> <%= @user.name  %> </h1>
-
-<h2>Attended Events</h2>
-<% @user.attended_events.past.each do |event|  %>
+</ul>
+</div>
+<div class="col-4">
+<h2 class="text-warning">Attended Events</h2>
+<% @past.each do |event|  %>
     <%= event.name %>
 <% end %>
-
-<h2>Registered Upcoming Events</h2>
-<% @user.attended_events.upcoming.each do |event|  %>
+</div>
+<div class="col-4">
+<h2 class="text-warning">Registered Upcoming Events</h2>
+<% @upcoming.each do |event|  %>
     <%= event.name %>
 <% end %>
+</div>
+</div>
