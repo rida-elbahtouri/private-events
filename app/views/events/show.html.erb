@@ -1,5 +1,12 @@
-<%= @event.creator.name  %>
-
-<% @event.attendees.each do |att| %>
-    <%= att.name %>
-<%end%>
+<h1 class='text-danger'><%= @event.name %></h1>
+<h3>Hosted by: <i><%= @event.creator.name  %></i></h3>
+<h3>Location: <i><%= @event.location%></i></h3>
+<h3>Date: <i><%= "#{@event.date.day}/#{@event.date.month}/#{@event.date.year}"%></i></h3>
+<h3>Description:</h3>
+<p><%= @event.description %></p>
+<h3>List of the guests:</h3>
+<ul>
+    <% @event.attendees.each do |att| %>
+        <li class='bg-light w-25 m-auto'><%= att.name %></li>
+    <%end%>
+</ul>

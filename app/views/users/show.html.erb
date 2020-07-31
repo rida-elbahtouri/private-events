@@ -9,20 +9,20 @@
 <ul>
 <% @user.hosted_events.each do |event| %>
      
-    <li> <%= event.name %></li>
+    <li> <%= link_to event.name, event_path(event.id) %></li>
 <% end %>
 </ul>
 </div>
 <div class="col-4">
 <h2 class="text-warning">Attended Events</h2>
 <% @past.each do |event|  %>
-    <%= event.name %>
+    <%= link_to event.name, event_path(event.id) %>
 <% end %>
 </div>
 <div class="col-4">
 <h2 class="text-warning">Registered Upcoming Events</h2>
 <% @upcoming.each do |event|  %>
-    <%= event.name %>
+    <%= link_to event.name, event_path(event.id) %>
 <% end %>
 </div>
 </div>
