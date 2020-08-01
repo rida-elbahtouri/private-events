@@ -1,0 +1,28 @@
+<p><%= flash[:success] %></p>
+<h1 class="text-danger"> <%= @user.name  %> </h1>
+
+
+<div class="row">
+
+<div class="col-4">
+<h2 class="text-warning"> Hosted Events </h2>
+<ul>
+<% @user.hosted_events.each do |event| %>
+     
+    <li> <%= link_to event.name, event_path(event.id) %></li>
+<% end %>
+</ul>
+</div>
+<div class="col-4">
+<h2 class="text-warning">Attended Events</h2>
+<% @past.each do |event|  %>
+    <%= link_to event.name, event_path(event.id) %>
+<% end %>
+</div>
+<div class="col-4">
+<h2 class="text-warning">Registered Upcoming Events</h2>
+<% @upcoming.each do |event|  %>
+    <%= link_to event.name, event_path(event.id) %>
+<% end %>
+</div>
+</div>
